@@ -18,17 +18,12 @@ form{
     margin: 10px 0;
 }
 
-.email{
+.email, .first-name, .password, .last-name{
     display: flex;
     flex-direction: column;
     width: 100%;
 }
 
-.password{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-}
 
 label{
     display: block;
@@ -57,9 +52,4 @@ input{
 
 input:focus{
     border-color: #b47e7b;
-}
-
-.link{
-    color: #000;
-    font-size: 18px;
 }
