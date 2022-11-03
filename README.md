@@ -1,6 +1,7 @@
 REACT LOGIN PAGE 
 
-![image](https://user-images.githubusercontent.com/70170606/198887458-df0cea5b-cbb0-4011-bc75-b74ba879985b.png)
+![image](https://user-images.githubusercontent.com/70170606/199726065-881fe428-37d5-4cd5-8dc8-34e2c82b8064.png)
+
 
 
 
