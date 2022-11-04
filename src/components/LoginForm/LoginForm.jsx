@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import Button from "../button/Button";
 import "./loginForm.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup"
@@ -21,13 +21,11 @@ const validationSchema = Yup.object().shape({
 });
 
 const LoginForm = () => {
-  // const emailRef = useRef();
-  // const errorRef = useRef();
-
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   // const [errorMsg, setErrorMsg] = useState("");
-  // const [success, setSuccess] = useState("");
+  const [success, setSuccess] = useState(false);
 
   // useEffect(() => {
   //   emailRef.current.focus();
@@ -36,25 +34,32 @@ const LoginForm = () => {
   // useEffect(() => {
   //   setErrorMsg("");
   // }, [email, password]);
-  
 
   const {register, handleSubmit, formState: {errors}, reset } = useForm({
     resolver: yupResolver(validationSchema)
   })
-
+  
+  const handleChange = (e) => {
+    e.preventDefault();
+    const value = e.target.value;
+    setEmail(value);
+    setPassword(value);
+  }
 
   const onSubmit = (data) => {
+    setSuccess(true)
     console.log({ data });
     reset();
+    navigate('/Home')
   }
 
   const onError = (errors) => {
     console.log(errors);
   };
+ 
 
 
   return (
-
         <div className="login-form">
           <form onSubmit={handleSubmit(onSubmit, onError)}>
             <div className="email">
@@ -64,7 +69,7 @@ const LoginForm = () => {
                 id="email"
                 placeholder="Email"
                 // ref={emailRef}
-                // onChange={(e) => setEmail(e.target.value)}
+                onChange={handleChange}
                 // value={email}
                 {...register("email")}
                 autoComplete="off"
