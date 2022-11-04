@@ -68,7 +68,6 @@ const LoginForm = () => {
                 type="email"
                 id="email"
                 placeholder="Email"
-                // ref={emailRef}
                 onChange={handleChange}
                 // value={email}
                 {...register("email")}
@@ -82,7 +81,7 @@ const LoginForm = () => {
                 type="password"
                 id="password"
                 placeholder="Password"
-                // onChange={(e) => setPassword(e.target.value)}
+                onChange={handleChange}
                 // value={password}
                 {...register("password")}
               />
