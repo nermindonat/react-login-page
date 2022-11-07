@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup"
+import { useTranslation } from "react-i18next";
 
 const validationSchema = Yup.object().shape({
   email: Yup
@@ -21,6 +22,7 @@ const validationSchema = Yup.object().shape({
 });
 
 const LoginForm = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -63,11 +65,11 @@ const LoginForm = () => {
         <div className="login-form">
           <form onSubmit={handleSubmit(onSubmit, onError)}>
             <div className="email">
-              <label htmlFor="email">Email Address</label>
+              <label htmlFor="email">{t("email-address")}</label>
               <input
                 type="email"
                 id="email"
-                placeholder="Email"
+                placeholder={t("email")}
                 onChange={handleChange}
                 // value={email}
                 {...register("email")}
@@ -76,11 +78,11 @@ const LoginForm = () => {
               <p className="message">{errors.email?.message}</p>
             </div>
             <div className="password">
-              <label htmlFor="username">Password</label>
+              <label htmlFor="username">{t("password")}</label>
               <input
                 type="password"
                 id="password"
-                placeholder="Password"
+                placeholder={t("password")}
                 onChange={handleChange}
                 // value={password}
                 {...register("password")}
@@ -90,7 +92,7 @@ const LoginForm = () => {
             <Button />
           </form>
           <div className="account">
-            <p>Don't have an account?</p>
+            <p>{t("dont-have-an-account")}</p>
             <Link className="link" to="/register">
               Sign Up
             </Link>

@@ -12,10 +12,11 @@
 
 }
 
-.select-lang{
-    border-radius: 0.375rem;
-    padding: 5px;
-    border: 1px solid #c5c3cb;
-    
+.select{
+    padding: 0.3rem;
+    outline: 0px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid #d2d0da;
     
 }

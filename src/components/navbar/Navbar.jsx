@@ -17,11 +17,15 @@ const Navbar = () => {
         <a href="#">Logo
             <img src="" alt="" />
         </a>
-        <select className='select-lang'
+        <h1>{t("main-title")}</h1>
+
+        <select className='select'
         onChange={handleChangeLanguage}
-        >{["en", "tr"].map((lang) => (
+        defaultValue={language}
+        >
+            {["en", "tr"].map((lang) => (
             <option key={lang} value={lang}>
-                {lang.toUpperCase}
+                {lang.toUpperCase()}
             </option>
         ))}
  
